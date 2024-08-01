@@ -1,0 +1,10 @@
+<button
+  type="button"
+  {{! if conditional to add class based on state}}
+  class="image {{if this.isLarge 'large'}}"
+  {{on "click" this.toggleSize}}
+>
+  <img ...attributes />
+  {{! if ternary to change text based on state}}
+  <small>View {{if this.isLarge "Smaller" "Larger"}}</small>
+</button>

@@ -1,7 +1,8 @@
-{{page-title "SuperRentalsEmberjsDemo"}}
-
-{{! The following component displays Ember's default welcome message. }}
-<WelcomePage />
-{{! Feel free to remove this! }}
-
-{{outlet}}
+{{! Layout for the application }}
+<div class="conatiner">
+  <NavBar />
+  <div class="body">
+    {{! outlet = where the child route's template will be rendered }}
+    {{outlet}}
+  </div>
+</div>
