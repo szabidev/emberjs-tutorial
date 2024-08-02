@@ -1,7 +1,12 @@
+{{! Rental component }}
 <article class="rental">
   <Rental::Image alt="A picture of {{@rental.title}}" src={{@rental.image}} />
   <div class="details">
-    <h3>{{@rental.title}}</h3>
+    <h3>
+      <LinkTo @route="rental" @model={{@rental}}>
+        {{@rental.title}}
+      </LinkTo>
+    </h3>
     <div class="detail owner">
       <span>Owner:</span>
       {{@rental.owner}}

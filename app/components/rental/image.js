@@ -1,3 +1,4 @@
+// image.js file to add a toggleSize action to the RentalImageComponent component track the state of the image size and toggle it when the image is clicked.
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';

@@ -25,9 +25,8 @@ module('Integration | Component | map', function (hooks) {
       .hasAttribute('height', '120');
 
     let { src } = find('.map img');
-    console.log(src, 'src');
+
     let token = encodeURIComponent(ENV.MAPBOX_ACCESS_TOKEN);
-    console.log(ENV.MAPBOX_ACCESS_TOKEN, 'ENV.MAPBOX_ACCESS_TOKEN');
 
     assert.ok(
       src.startsWith('https://api.mapbox.com/'),

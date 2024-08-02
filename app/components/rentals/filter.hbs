@@ -1,0 +1,8 @@
+{{! Rental::Filters }}
+
+{{! The purpose of 'yield' is to render the block that is passed in by the component's caller, which is the thing that is invoking the current component (a template or another component, for example). But in this specific case, we don't just have a 'yield' keyword. Instead, we have this.results inside of our 'yield' keyword }}
+
+{{! This component's only responsibility is to set up some piece of state (this.results, the list of filtered rental properties), and then yield that state back up to its caller (<Rentals>) in the form of a block parameter (as |results|).}}
+{{yield this.results}}
+
+{{! This is called the provider component pattern, with one component providing data up to its caller.}}

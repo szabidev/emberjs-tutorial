@@ -1,23 +1,15 @@
+// Index route to fetch data from the API and return it to the template
 import Route from '@ember/routing/route';
-
-const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
+import { service } from '@ember/service';
+import { query } from '@ember-data/json-api/request';
 
 export default class IndexRoute extends Route {
+  // Injecting the store service to access the Ember Data store
+  @service store;
+
+  // Fetching the data from the API and returning it to the template
   async model() {
-    let response = await fetch('/api/rentals.json');
-    let { data } = await response.json();
-
-    return data.map((model) => {
-      let { attributes } = model;
-      let type;
-
-      if (COMMUNITY_CATEGORIES.includes(attributes.category)) {
-        type = 'Community';
-      } else {
-        type = 'Standalone';
-      }
-
-      return { type, ...attributes };
-    });
+    const { content } = await this.store.request(query('rental'));
+    return content.data;
   }
 }

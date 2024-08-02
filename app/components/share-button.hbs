@@ -1,0 +1,14 @@
+{{! Share button component }}
+<a
+  {{! attributes is a special argument that allows you to pass through all attributes to the component }}
+  {{! the order we pass in ...attributes is important, so we can override href, target, and other attributes }}
+  {{! The values for class attribute not overridden, but merged with the values passed in and concatenated }}
+  ...attributes
+  href={{this.shareURL}}
+  target="_blank"
+  rel="external nofollow noopener noreferrer"
+  class="share button"
+>
+  {{! yield is a special keyword that allows you to pass through the content of the component }}
+  {{yield}}
+</a>

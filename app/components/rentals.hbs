@@ -1,0 +1,21 @@
+{{! Rentals component is passed the model from the index route, which is an array of rentals }}
+{{! For each rental in the model, display a Rental component }}
+{{! The Rental component is passed the rental object }}
+{{! The Rental component also displays}}
+
+<div class="rentals">
+  <label>
+    <span>Where would you like to stay?</span>
+    {{! Input component with a value attribute, query is passed in from the parent component which is the index.hbs file }}
+    {{! Whenever the user types something into the input box, this.query changes accordingly. In other words, this.query is kept in sync with the value of what is being searched}}
+    <Input @value={{this.query}} class="light" />
+  </label>
+
+  <ul class="results">
+    <Rentals::Filter @rentals={{@rentals}} @query={{this.query}} as |results|>
+      {{#each results as |rental|}}
+        <li><Rental @rental={{rental}} /></li>
+      {{/each}}
+    </Rentals::Filter>
+  </ul>
+</div>
